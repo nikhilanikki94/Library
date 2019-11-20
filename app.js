@@ -17,8 +17,9 @@ app.use(bodyparser.urlencoded({
 }));
 
 
-var nav = [{ link: '/', title: 'HOME' },
-{ link: '/login', title: 'LOGIN' },
+var nav = [
+    { link: '/', title: 'HOME' },
+    { link: '/login', title: 'LOGIN' },
 { link: '/signupp', title: 'SIGNUP' },
 { link: '/books', title: 'BOOKS' },
 { link: '/authors', title: 'AUTHORS' },
@@ -58,6 +59,6 @@ app.get('/', function (req, res) {
 
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('listening to port' + chalk.green('3000'));
 });

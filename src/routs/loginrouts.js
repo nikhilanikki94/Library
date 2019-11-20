@@ -3,25 +3,6 @@ const loginRouter=express.Router();
 var{loginmodel}=require('../models/loginmodel')
 function router(nav){
 
-    loginRouter.route('/')
-    .get((req,res)=>{
-        loginmodel.find((error,data)=>{
-            if(error){
-                throw error;
-            }
-            else{
-                test=data;
-             res.render(
-            'login',
-            {
-                nav,
-                title:'Login',
-                login:data
-            }
-        )
-        }
-        })
-    } )
     loginRouter.route('/save')
     .post((req,res)=>{
         var login=new loginmodel(req.body);
@@ -35,6 +16,27 @@ function router(nav){
             }
         })
     })
+
+    loginRouter.route('/')
+    .get((req,res)=>{
+        loginmodel.find((error,data)=>{
+            if(error){
+                throw error;
+            }
+            else{
+                test=data;
+             res.render(
+            'login',
+            {
+                nav,
+                title:'Login',
+               
+            }
+        )
+        }
+        })
+    } )
+    
     loginRouter.get('/viewAllapi', (req, res) => {
         loginmodel.find((error, data) => {
             if (error) {

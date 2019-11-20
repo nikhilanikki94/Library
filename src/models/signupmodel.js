@@ -14,5 +14,5 @@ var signupschema=new mongoose.Schema(
         pswd1:String
     }
 )
-var signupModel=mongoose.model('signupp',signupschema);
+var signupModel=mongoose.model('signup',signupschema);
 module.exports={signupModel};
